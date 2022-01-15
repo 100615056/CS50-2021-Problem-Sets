@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<!-- Class names from CS50 -->
+   <table class="table tablestriped">
+       <thead>
+           <tr>
+               <th class="text-start">Symbol</th>
+               <th class="text-start">Name</th>
+               <th class="text-end">Shares</th>
+               <th class="text-end">Price</th>
+               <th class="text-end">TOTAL</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for transaction in transactions %}
+               <tr>
+                   <td class="text-start">{{ transaction.symbol }}</td>
+                   <td class="text-start">{{ transaction.company }}</td>
+                   <td class="text-end">{{ transaction.shares }}</td>
+                   <td class="text-end">{{ transaction.price }}</td>
+                   <td class="text-end">{{ transaction.total }}</td>
+               </tr>
+           {% endfor %}
+       </tbody>
+       <tfoot>
+           <tr>
+               <td class="border-0 fw-bold text-end" id="cash" colspan="4">Cash</td>
+               <td class="border-0 text-end">{{ cash | usd }}</td>
+           </tr>
+               <td class="border-0 fw-bold text-end" id="total" colspan="4">TOTAL</td>
+               <td class="border-0 w-bold text-end">$10,000.00</td>
+       </tfoot>
+   </table>
+{% endblock %}
