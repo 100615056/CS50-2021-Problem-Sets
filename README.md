@@ -4,7 +4,7 @@
 
 ### mario.c
 
-Create a right-aligned and left-aligned pyramid using hashes (#) where the user decides the height by entering a number between 1 and 8, inclusive.
+Create a double half-pyramid using hashes (#) where the user decides the height by entering a number between 1 and 8, inclusive.
 
 ### credit.c
 
@@ -100,7 +100,63 @@ unload
 
 ## Problem Sets using Python
 
+### mario.py, credit.py, readability.py
+
+Complete the previous C problems (mario.c, credic.c, readability.c) using Python. 
+
+### dna.py
+
+Implement a program that identifies a person based on thier DNA sequence. Take a sequence of DNA and a CSV file containing STR counts for a list of individuals and ouput whom the DNA (most likely) belongs to.
+
+**Note:**
+Assumptions:
+- If correct arguments are provided, the first argument is the filename of a valid CSV file and the second argument us the filename of a valid text file
+- 1st row of CSV file will be the column names
+- STR counts will not match more than one individual
+
 ## Problem Sets using SQL
+
+### /movies
+
+Each file is a single SQL query that outputs the necessary data specified in each problem. Uses data from IMDb, up to the data that the database was created. 
+
+Problems can be found here: https://cs50.harvard.edu/x/2021/psets/7/movies/
+
+### log.sql
+
+Write SQL queries to solve the mystery given the information from fiftyville.db.
+
+**Note:**
+- Initial Information: The theft took place on July 28, 2020 and it took place on Chamberlin Street.
 
 ## Problem Set using Python, Flask, and SQL
 
+Implement a web application to manage a portfolio of stocks. This tool allows for the checking of real stock prices, and will allow the user to "buy" and "sell" stocks by querying IEX for stocks' prices. Complete the implementation of register, quote, buy, index, sell, history, and a personal touch.
+
+register
+
+- Allows user to register for an account via a form
+- Contains a username, password, and confirmation of password
+- Validate user data
+
+quote
+- Allows user to lookup a stock's current price
+
+buy
+- Enables a user to buy stocks
+- Validate user data
+- Store information in database
+
+index
+- Display an HTML table summarizing the user's current stock portfolio 
+
+sell
+- Sell stock that the user owns
+- Validate user data
+- Update the database
+
+history
+- Display an HTML table summarizing the user's transactions
+
+personal touch
+- Require users' passwords to have some number of letter, numbers, and symbols
