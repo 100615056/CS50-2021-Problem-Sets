@@ -8,7 +8,7 @@ Create a right-aligned and left-aligned pyramid using hashes (#) where the user 
 
 ### credit.c
 
-Prompt the user for a credit card number and determine > whether it is a valid American Express, MasterCard, or Visa card number, per the definitions of each’s format herein. 
+Prompt the user for a credit card number and determine whether it is a valid American Express, MasterCard, or Visa card number, per the definitions of each’s format herein. 
 
 **Note:**
 - Luhn's Algorithm was used to determine credit card number validity 
@@ -22,8 +22,8 @@ Prompt the user for a text and determine the reading level using the Coleman-Lia
 - Letter - any lowercase character from a-z or any uppercase character from A-Z
 - Word - Sequence of character seperated by spaces
 - End of sentence - Occurence of period, exclamation point, or question mark
-- If index number is 16 or higher, output is > Grade16+
-- If index number is less than 1, output is > Before Grade 1
+- If index number is 16 or higher, output is Grade16+
+- If index number is less than 1, output is Before Grade 1
 
 ### caesar.c
 
@@ -93,10 +93,10 @@ unload
 
 **Note:**
 - Assumptions: 
-   - dictionary passed is >  alphabetically sorted from top to bottom with one word per line, each of which ends with \n
+   - dictionary passed is alphabetically sorted from top to bottom with one word per line, each of which ends with \n
    - dictionary contains at least one word, and no word will be longer than LENGTH characters
-   - no duplicate words, >  each word will contain only lowercase alphabetical characters and possibly apostrophes, and that no word will start with an apostrophe
-   - > check will only be passed words that contain (uppercase or lowercase) alphabetical characters and possibly apostrophes
+   - no duplicate words, each word will contain only lowercase alphabetical characters and possibly apostrophes, and that no word will start with an apostrophe
+   - check will only be passed words that contain (uppercase or lowercase) alphabetical characters and possibly apostrophes
 
 ## Problem Sets using Python
 
