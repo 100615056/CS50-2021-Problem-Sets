@@ -131,6 +131,8 @@ Write SQL queries to solve the mystery given the information from fiftyville.db.
 
 ## Problem Set using Python, Flask, and SQL
 
+### /finance
+
 Implement a web application to manage a portfolio of stocks. This tool allows for the checking of real stock prices, and will allow the user to "buy" and "sell" stocks by querying IEX for stocks' prices. Complete the implementation of register, quote, buy, index, sell, history, and a personal touch.
 
 register
