@@ -18,7 +18,7 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    //Print the winner
+    // Print the winner
     if (score1 > score2)
     {
         printf("Player 1 wins!\n");
@@ -40,10 +40,10 @@ int compute_score(string word)
     int score = 0;
     int value, index;
 
-//Iterate through each character in string and calulate score
+// Iterate through each character in string and calculate score
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        //Check to make sure the character is in the alphabet
+        // Check to make sure the character is in the alphabet
         if (isalpha(word[i]))
         {
         

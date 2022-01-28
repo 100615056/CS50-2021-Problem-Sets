@@ -4,16 +4,16 @@ from cs50 import get_int, get_string
 def main():
     # Get credit card number
     number = get_credit_number()
-    # Determine if a valid credit card using Luhn’s algorithm 
+    # Determine if a valid credit card using Luhn’s algorithm
     product = get_product_sum(number)
     digit = last_digit(number, product)
     first, second = get_digits(number)
-    # Print type of credit card or invalid 
+    # Print type of credit card or invalid
     print_credit_card(number, digit, first, second)
-    
+
 
 def get_credit_number():
-    # Get positve credit number
+    # Get positive credit number
     while True:
         num = get_int("Number: ")
         if num > 0:
@@ -25,7 +25,7 @@ def get_product_sum(num):
     length = str(num)
     count = 0
     total = 0
-    # Get each indiviudal digit and count the digits
+    # Get each individual digit and count the digits
     for i in length:
 
         digit = int(num % 10)
@@ -54,7 +54,7 @@ def last_digit(num, product):
     count = 0
     total = product
 
-    # Get each indiviudal digit and count the digits
+    # Get each individual digit and count the digits
     for i in length:
 
         digit = int(num % 10)
@@ -82,7 +82,7 @@ def get_digits(num):
 def print_credit_card(number, digit, first, second):
     num = str(number)
     length = len(num)
-    
+
     # Validate credit card type
     if digit == 0:
         if length == 15 and second == 34 or length == 15 and second == 37:
@@ -96,6 +96,6 @@ def print_credit_card(number, digit, first, second):
 
     else:
         print("INVALID")
-        
-        
+
+
 main()

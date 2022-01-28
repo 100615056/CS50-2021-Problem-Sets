@@ -2,9 +2,9 @@ from cs50 import get_int
 
 
 def main():
-    # Validate hieght choice
+    # Validate height choice
     h = valid_height()
-    
+
     # Draw Pyramid
     DrawPyramid(h)
 
@@ -26,23 +26,23 @@ def calculate_spaces(height):
 
 
 def calculate_hashes(n):
-    
+
     # Calculate hash
     hashes = n
     return hashes
 
-    
+
 def DrawPyramid(height):
-    
+
     min_value = 1
     max_value = height
-    
+
     # Calculate Spaces and Hashes
     for i in range(height):
-        # Calculate spaces and hashes    
+        # Calculate spaces and hashes
         s = calculate_spaces(max_value)
         h = calculate_hashes(min_value)
-        
+
         # Print Pyramid
         # Print Spaces
         for j in range(s):
@@ -56,11 +56,10 @@ def DrawPyramid(height):
         for k in range(h):
             print("#", end="")
         print()
-        
+
         # Change values for each row
         min_value += 1
         max_value -= 1
-        
-        
-main()
 
+
+main()

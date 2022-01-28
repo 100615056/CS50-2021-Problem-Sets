@@ -40,16 +40,16 @@ def main():
                 if count == len(STR):
                     print(person[0])
                     exit()
-                    
+
     print("no match")
 
 
-# Calculate the maximum number of STR occurances given a DNA sequence
+# Calculate the maximum number of STR occurrences given a DNA sequence
 def repeat_count(STR, sequence):
     length = int(len(STR))
     # Credit from GeeksforGeeks https://www.geeksforgeeks.org/python-maximum-consecutive-substring-occurrence/
     # Using the findall and escape functions from re library to find consecutive STRs
-    # Then use the max funtion to find the maximum occurence
+    # Then use the max function to find the maximum occurrence
     # key = len, find longest item based on length
     sub = max(re.findall('((?:' + re.escape(STR) + ')*)', sequence), key=len)
     # Determine the maximum number of consecutive STR repeats

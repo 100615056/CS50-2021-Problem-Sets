@@ -130,9 +130,11 @@ bool vote(int voter, int rank, string name)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i].name) == 0) //Validate voting name with candidate
+        // Validate voting name with candidate
+        if (strcmp(name, candidates[i].name) == 0) 
         {
-            preferences[voter][rank] = i; //Update array with voter's choice
+            // Update array with voter's choice
+            preferences[voter][rank] = i; 
             return true;
         }
     }
@@ -142,15 +144,18 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    //Initalize Variables
+    // Initialize Variables
     int vote = 0;
-    for (int i = 0; i < voter_count; i++) //Go through each vote
+    // Go through each vote
+    for (int i = 0; i < voter_count; i++) 
     {
-        for (int j = 0; j < candidate_count; j++) //Go through each preference
+        // Go through each preference
+        for (int j = 0; j < candidate_count; j++) 
         {
-            vote = preferences[i][j]; //Find who the voter is voting for
+             // Find who the voter is voting for
+            vote = preferences[i][j];
 
-            //If the user is not eliminated, add the votes, then update j
+            // If the user is not eliminated, add the votes, then update j
             if (candidates[vote].eliminated == false) 
             {
                 candidates[vote].votes += 1;
@@ -164,13 +169,14 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    //Initalize Variables
+    // Initialize Variables
     int max = candidates[0].votes;
     string name = candidates[0].name;
 
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes >= max) //Compare current maximum with votes and update if needed
+        // Compare current maximum with votes and update if needed
+        if (candidates[i].votes >= max) 
         {
             max = candidates[i].votes;
             name = candidates[i].name;
@@ -187,14 +193,15 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    //Intialize Variables
+    // Initialize Variables
     int minimum = candidates[0].votes;
 
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].eliminated == false)
         {
-            if (candidates[i].votes <= minimum) //Compare current minimum with votes and update if needed
+            // Compare current minimum with votes and update if needed
+            if (candidates[i].votes <= minimum) 
             {
                 minimum = candidates[i].votes;
             }
@@ -212,18 +219,19 @@ bool is_tie(int min)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].eliminated == false) //Coun the total candidates
+        // Count the total candidates
+        if (candidates[i].eliminated == false) 
         {
             running_count += 1;
         }
-        
-        if (candidates[i].votes == min) //Count the candidates with the least amount of votes
+        // Count the candidates with the least amount of votes
         {
+        if (candidates[i].votes == min) 
             min_count += 1;
         }
     }
-    
-    if (running_count == min_count) //Compare candidates with min votes to total running candidates
+    // Compare candidates with min votes to total running candidates
+    if (running_count == min_count) 
     {
         return true;
     }
@@ -236,7 +244,8 @@ void eliminate(int min)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].eliminated == false) //If running candidate has minimum vote, eliminate them from the election
+        // If running candidate has minimum vote, eliminate them from the election
+        if (candidates[i].eliminated == false) 
         {
             if (candidates[i].votes == min)
             {

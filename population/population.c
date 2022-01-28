@@ -3,36 +3,33 @@
 
 int main(void)
 {
-    //Initalize variables
+    // Initialize variables
     int start;
     int end;
     int year = 0;
 
-    //Prompt for start size
+    // Prompt for start size
     do
     {
         start = get_int("Start size: ");
-    }
+    } 
     while (start < 9);
 
-    //Prompt for end size
+    // Prompt for end size
     do
     {
         end = get_int("End size: ");
-    }
+    } 
     while (end < start);
     
-    //Inializing population
-    
+    // Initializing population
     int n = start;
-
-    //Calculate number of years until we reach threshold
+    // Calculate number of years until we reach threshold
     while (n < end)
     {
         n = n + (n / 3) - (n / 4);
         year++;
     }
-    
-    //Print number of years
+    // Print number of years
     printf("Years: %i\n", year);
 }

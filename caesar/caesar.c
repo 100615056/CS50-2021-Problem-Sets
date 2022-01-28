@@ -4,19 +4,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 int main(int argc, string argv[])
 {
-    //Intitalize Variables
+    // Initialize Variables
     int key = 0;
-    //Too many command arguments
+    // Too many command arguments
     if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
         return 1;
     }
-
-    //Validate command-line argument
+    // Validate command-line argument
     if (argc == 2)
     {
         for (int i = 0, n = strlen(argv[1]); i < n; i++)
@@ -28,27 +26,26 @@ int main(int argc, string argv[])
             }
             else
             {
-                key = atoi(argv[1]); //Convert key from string to int
-
+                // Convert key from string to int
+                key = atoi(argv[1]);
             }
         }
     }
 
-    //Asking for original text
+    // Asking for original text
     string text = get_string("plaintext: ");
 
-    //Intializing variables
+    // Intializing variables
     string ciphertext;
     int c = 0;
     int input = 0;
     int ci = 0;
     int output = 0;
 
-
-    //Encoding and printing ciphertext
+    // Encoding and printing ciphertext
     printf("ciphertext: ");
 
-    //Iterates through each character in text and applies the key to convert to ciphertext
+    // Iterates through each character in text and applies the key to convert to ciphertext
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (isalpha(text[i]))

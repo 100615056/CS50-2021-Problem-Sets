@@ -1,11 +1,11 @@
--- Keep a log of any SQL queries you execute as you solve the mystery.
+-- Log of any SQL queries used to solve the mystery.
 
--- Only intially know that theft took place on July 28, 2020 and took place on Chamberlin Street
+-- Know: The theft took place on July 28, 2020, and took place on Chamberlin Street
 
 -- Start with crime_scene_reports - Check report that mataches date and location of the crime
 SELECT description FROM crime_scene_reports WHERE month = 7 AND day = 28 AND street = "Chamberlin Street";
 
--- Time: 10:15 am, Chamberlin courthouse. 3 witnesses - interview transcript mentions courthouse
+-- Time: 10:15 am, Chamberlin courthouse, 3 witnesses - interview transcript mentions courthouse
 
 -- Check interviews - Taken on day of crime and feature courthouse
 SELECT name, transcript FROM interviews WHERE month = 7 AND day = 28

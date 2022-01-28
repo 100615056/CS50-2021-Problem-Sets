@@ -22,30 +22,30 @@ const unsigned int N = 676;
 // Hash table
 node *table[N];
 
-//Global variable to count the number of words
+// Global variable to count the number of words
 int count = 0;
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    //Take length of string (word) and add one to account for \0 - end of string
+    // Take length of string (word) and add one to account for \0 - end of string
     int len = strlen(word);
     //Create new word
     char text_word[len + 1];
 
-    //Case-insenitive - thus convert everything to lowercase
+    // Case-insensitive - thus convert everything to lowercase
     for (int i = 0; i < (len + 1); i++)
     {
         text_word[i] = tolower(word[i]);
     }
 
-    //Hash word to obtain hash value
+    // Hash word to obtain hash value
     int index = hash(text_word);
 
-    //Point cursor to front
+    // Point cursor to front
     node *cursor = table[index];
 
-    //Traverse through list and compare word with dictionary words, until cursor is NULL (end of linked list)
+    // Traverse through list and compare word with dictionary words, until cursor is NULL (end of linked list)
     while (cursor != NULL)
     {
         if (strcasecmp(text_word, cursor->word) == 0)
@@ -53,7 +53,7 @@ bool check(const char *word)
             return true;
             
         }
-        //Move cursor along linked list
+        // Move cursor along linked list
         cursor = cursor->next;
     }
 
@@ -65,7 +65,7 @@ unsigned int hash(const char *word)
 {
     // Credits to Engineer Man for the Hash Function (https://www.youtube.com/watch?v=wg8hZxMRwcw&list=WL&index=13)
 
-    //Variable Initialization
+    // Variable Initialization
     unsigned long int hash = 0;
     unsigned int i = 0;
     unsigned int word_length = strlen(word);
@@ -88,35 +88,35 @@ bool load(const char *dictionary)
     // Open dictionary file and read words from file
     FILE *file = fopen(dictionary, "r");
 
-    //Error check
+    // Error check
     if (file == NULL)
     {
         return 1;
     }
 
-    //Initalize dictionary word
+    // Initialize dictionary word
     char dict_word[LENGTH + 1];
 
-    //Scan each word until reached the end
+    // Scan each word until reached the end
     while (fscanf(file, "%s", dict_word) != EOF)
     {
-        //Create node
+        // Create node
         node *n = malloc(sizeof(node));
 
-        //Error check
+        // Error check
         if (n == NULL)
         {
             return 1;
         }
 
-        //Copying word to node - current address is NULL - to avoid memory leakage
+        // Copying word to node - current address is NULL - to avoid memory leakage
         strcpy(n->word, dict_word);
         n->next = NULL;
 
-        //Hash word to recieve hash value
+        // Hash word to receive hash value
         int index = hash(n->word);
 
-        //Start of linked list
+        // Start of linked list
         if (table[index] == NULL)
         {
             table[index] = n;
@@ -125,14 +125,14 @@ bool load(const char *dictionary)
 
         else
         {
-            //Set new element to be in front and then reset the first element to be the new node
+            // Set new element to be in front and then reset the first element to be the new node
             n->next = table[index];
             table[index] = n;
             count++;
         }
     }
 
-    //Close file
+    // Close file
     fclose(file);
     return true;
 }
@@ -140,27 +140,25 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    //Return the global count variable -  incremented in the load function
+    // Return the global count variable -  incremented in the load function
     return count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    //
     for (int i = 0; i < N; i++)
     {
-        //Create node to point to nodes
+        // Create node to point to nodes
         node *cursor = table[i];
         while (cursor != NULL)
         {
-            //Create temporary node
+            // Create temporary node
             node *tmp = cursor;
-            //Move cursor ahead of temporary node
+            // Move cursor ahead of temporary node
             cursor = cursor->next;
             free(tmp);
         }
-
     }
     return true;
 }
