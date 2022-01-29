@@ -45,7 +45,7 @@ def count_sentences(text):
     
 
 def calculate_index(c, w, s):
-    # Calulate the L and S values for the Coleman-Liau index
+    # Calculate the L and S values for the Coleman-Liau index
     L = c / w * 100.00
     S = s / w * 100.00
 

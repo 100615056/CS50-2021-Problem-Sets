@@ -9,31 +9,18 @@ int count_letters(string text);
 int count_words(string text);
 int count_sentences(string text);
 float calculate_index(int c, int w, int s);
+void print_grade_level(int index);
 
 int main(void)
 {
-    string t = get_string("Text: ");
-    int c = count_letters(t);
-    int w = count_words(t);
-    int s = count_sentences(t);
-    int index = round(calculate_index(c, w, s));
-
+    string text = get_string("Text: ");
+    int count = count_letters(text);
+    int words = count_words(text);
+    int sentence = count_sentences(text);
+    int index = round(calculate_index(count, words, sentence));
+    
     // Print Grade Level
-    if (index < 1)
-    {
-        printf("Before Grade 1\n");
-    }
-
-    if (index >= 16)
-    {
-        printf("Grade 16+\n");
-    }
-
-    if (index > 1 && index < 16)
-    {
-        printf("Grade %i\n", index);
-    }
-
+    print_grade_level(index);
 }
 
 int count_letters(string text)
@@ -95,4 +82,23 @@ float calculate_index(int c, int w, int s)
     // Compute the index
     float index =  0.0588 * L - 0.296 * S - 15.8;
     return index;
+}
+
+void print_grade_level(int index) 
+{
+    // Print Grade Level
+    if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+
+    if (index >= 16)
+    {
+        printf("Grade 16+\n");
+    }
+
+    if (index > 1 && index < 16)
+    {
+        printf("Grade %i\n", index);
+    }
 }
