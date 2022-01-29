@@ -4,15 +4,46 @@
 int get_height(void);
 int calculate_spaces(int height);
 int calculate_hashes(int n);
+void print_pyramid(int h);
 
 int main(void)
 {
-    int n = get_height();
+    int h = get_height();
+    print_pyramid(h);
+    
+}
 
+int get_height(void)
+{
+    int h;
+    // Prompt user for height
+    do
+    {
+        h = get_int("Height: ");
+    } while (h < 1 || h > 8);
+    return h;
+}
+
+int calculate_spaces(int height)
+{
+    // Calculate spaces needed
+    int space = height - 1;
+    return space;
+}
+
+int calculate_hashes(int n)
+{
+    // Calculate hashes needed
+    int hash = n;
+    return hash;
+}
+
+void print_pyramid(int height)
+{
     int min = 1;
-    int max = n;
+    int max = height;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < height; i++)
     {
         // Calculate Spaces and Hashes
         int s = calculate_spaces(max);
@@ -42,29 +73,4 @@ int main(void)
         min++;
         max--;
     }
-}
-
-int get_height(void)
-{
-    int h;
-    // Prompt user for height
-    do
-    {
-        h = get_int("Height: ");
-    } while (h < 1 || h > 8);
-    return h;
-}
-
-int calculate_spaces(int height)
-{
-    // Calculate spaces needed
-    int space = height - 1;
-    return space;
-}
-
-int calculate_hashes(int n)
-{
-    // Calculate hashes needed
-    int hash = n;
-    return hash;
 }

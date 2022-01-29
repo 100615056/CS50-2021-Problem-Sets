@@ -5,8 +5,8 @@ def main():
     # Validate height choice
     h = valid_height()
 
-    # Draw Pyramid
-    DrawPyramid(h)
+    # Print Pyramid
+    print_pyramid(h)
 
 
 def valid_height():
@@ -26,14 +26,12 @@ def calculate_spaces(height):
 
 
 def calculate_hashes(n):
-
     # Calculate hash
     hashes = n
     return hashes
 
 
-def DrawPyramid(height):
-
+def print_pyramid(height):
     min_value = 1
     max_value = height
 
